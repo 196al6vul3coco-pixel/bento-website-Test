@@ -36,7 +36,6 @@ footer {
   gap: 20px;
 }
 
-/* Bento Card */
 .bento-card {
   border-radius: 25px;
   padding: 20px;
@@ -45,11 +44,21 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: transform 0.25s, box-shadow 0.25s;
   cursor: pointer;
   color: white;
   font-weight: 500;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+
+  /* 滑入動畫 */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.bento-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* hover 動態 */
@@ -68,13 +77,21 @@ footer {
   grid-column: span 2;
 }
 
-/* 圖片樣式 */
-.card-img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 15px;
+/* 圖片容器 */
+.image-wrapper {
+  width: 70%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.card-img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+  margin-top: 15px;
 }
 
 /* 不同卡片顏色 */
@@ -84,8 +101,6 @@ footer {
 .cl4 { background: linear-gradient(135deg, #845EC2, #D65DB1); }
 .cl5 { background: linear-gradient(135deg, #00C9A7, #92FE9D); }
 .cl6 { background: linear-gradient(135deg, #F9F871, #FF6B6B); }
-.cl7 { background: linear-gradient(135deg, #FFB347, #FFCC33); }
-.cl8 { background: linear-gradient(135deg, #4ECDC4, #556270); }
 
 /* a 連結樣式 */
 .bento-card a {
@@ -102,31 +117,29 @@ footer {
   .wide { grid-column: span 1; }
 }
 
-/* 跑馬燈容器 */
+/* 跑馬燈 */
 .marquee-wrapper {
-  position: fixed;   /* 固定在視窗 */
-  bottom: 0;         /* 貼緊底部 */
-  left: 0;           /* 貼緊左邊 */
-  width: 100%;       /* 全寬 */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 40px;
   background: #333;
   overflow: hidden;
   display: flex;
   align-items: center;
-  z-index: 1000;     /* 確保在最上層 */
+  z-index: 1000;
   padding: 0;
 }
 
-/* 跑馬燈文字 */
 .marquee {
   display: inline-block;
   white-space: nowrap;
   font-weight: bold;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
   cursor: default;
 }
 
-/* 漸層文字 */
 .rainbow-text {
   background: linear-gradient(90deg, #ff6b6b, #fddb3a, #6bcB77, #4d96ff, #d65db1);
   background-clip: text;
@@ -135,31 +148,16 @@ footer {
   animation: rainbow 3s linear infinite;
 }
 
-/* Emoji 動態跳動 */
-.marquee span.emoji {
-  display: inline-block;
-  animation: bounce 1s infinite alternate;
-}
-
-/* 滾動動畫 */
 @keyframes marquee {
-  0% { transform: translateX(100%); }
+  0% { transform: translateX(70%); }
   100% { transform: translateX(-100%); }
 }
 
-/* 漸層動態 */
 @keyframes rainbow {
   0% { background-position: 0%; }
   100% { background-position: 100%; }
 }
 
-/* Emoji 跳動 */
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-/* 懸停暫停 */
 .marquee-wrapper:hover .marquee {
   animation-play-state: paused;
 }
