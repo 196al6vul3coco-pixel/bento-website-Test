@@ -1,0 +1,165 @@
+/* 基本樣式 */
+body {
+  background: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 40px;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  color: #666;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 180px;
+  gap: 20px;
+}
+
+/* Bento Card */
+.bento-card {
+  border-radius: 25px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* hover 動態 */
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(157, 255, 150, 0.12);
+}
+
+/* 不同尺寸卡片 */
+.large {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+/* 圖片樣式 */
+.card-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* 不同卡片顏色 */
+.cl1 { background: linear-gradient(135deg, #FF6B6B, #FFD93D); }
+.cl2 { background: linear-gradient(135deg, #6BCB77, #4D96FF); }
+.cl3 { background: linear-gradient(135deg, #FF8C42, #FF3CAC); }
+.cl4 { background: linear-gradient(135deg, #845EC2, #D65DB1); }
+.cl5 { background: linear-gradient(135deg, #00C9A7, #92FE9D); }
+.cl6 { background: linear-gradient(135deg, #F9F871, #FF6B6B); }
+.cl7 { background: linear-gradient(135deg, #FFB347, #FFCC33); }
+.cl8 { background: linear-gradient(135deg, #4ECDC4, #556270); }
+
+/* a 連結樣式 */
+.bento-card a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .large { grid-row: span 1; grid-column: span 1; }
+  .wide { grid-column: span 1; }
+}
+
+/* 跑馬燈容器 */
+.marquee-wrapper {
+  position: fixed;   /* 固定在視窗 */
+  bottom: 0;         /* 貼緊底部 */
+  left: 0;           /* 貼緊左邊 */
+  width: 100%;       /* 全寬 */
+  height: 40px;
+  background: #333;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 1000;     /* 確保在最上層 */
+  padding: 0;
+}
+
+/* 跑馬燈文字 */
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  animation: marquee 15s linear infinite;
+  cursor: default;
+}
+
+/* 漸層文字 */
+.rainbow-text {
+  background: linear-gradient(90deg, #ff6b6b, #fddb3a, #6bcB77, #4d96ff, #d65db1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow 3s linear infinite;
+}
+
+/* Emoji 動態跳動 */
+.marquee span.emoji {
+  display: inline-block;
+  animation: bounce 1s infinite alternate;
+}
+
+/* 滾動動畫 */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 漸層動態 */
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+/* Emoji 跳動 */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* 懸停暫停 */
+.marquee-wrapper:hover .marquee {
+  animation-play-state: paused;
+}
