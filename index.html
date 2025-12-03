@@ -7,13 +7,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <button id="theme-toggle">切換主題 🌙</button>
+  <!-- 頁首 -->
   <header>
     <h1>我的 Bento 網頁</h1>
     <p>展示作品與資訊的簡潔 Bento 風格</p>
   </header>
 
+  <!-- 主內容區域：Bento 卡片網格 -->
   <main class="bento-grid">
-    <!-- 卡片範例，增加 onclick 跳轉 -->
+    
+    <!-- 主要作品卡片 -->
     <div class="bento-card large cl1" onclick="window.location.href='#'">
       <div class="image-wrapper">
         <img src="images/fatdog.png" alt="作品展示" class="card-img">
@@ -22,11 +26,13 @@
       <p>這是我最引以為傲的作品，點擊可查看更多。</p>
     </div>
 
+    <!-- 關於我 -->
     <div class="bento-card cl2" onclick="window.location.href='#'">
       <h3>關於我</h3>
       <p>熱愛設計與程式，喜歡簡潔、整齊的 UI 排版。</p>
     </div>
 
+    <!-- 技能 -->
     <div class="bento-card cl3" onclick="window.location.href='#'">
       <h3>技能</h3>
       <ul>
@@ -36,48 +42,171 @@
       </ul>
     </div>
 
+    <!-- 最新文章 -->
     <div class="bento-card wide cl4" onclick="window.location.href='#'">
       <h3>最新文章</h3>
       <p>分享我的設計心得、程式筆記與專案經驗。</p>
     </div>
 
-    <div class="bento-card cl5" onclick="window.location.href='#'">
-      <h3>聯絡方式</h3>
-      <p>Email: example@mail.com</p>
-      <p>Phone: 0912-345-678</p>
+    <!-- 聯絡表單 -->
+    <div class="bento-card cl5">
+      <h3>聯絡我</h3>
+      <form id="contact-form">
+        <input type="text" placeholder="姓名" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="訊息" required></textarea>
+        <button type="submit">送出</button>
+      </form>
     </div>
 
+    <!-- 社群連結 -->
     <div class="bento-card cl6" onclick="window.location.href='#'">
       <h3>社群連結</h3>
       <p><a href="#">GitHub</a> | <a href="#">LinkedIn</a></p>
     </div>
 
-    <!-- 新增方塊 -->
-    <div class="bento-card cl1" onclick="window.location.href='#'">
-      <h3>作品 2</h3>
-      <p>更多作品展示，增加頁面豐富度。</p>
+    <!-- 作品細節卡片（可展開/收合） -->
+    <div class="bento-card cl3 expandable-card">
+      <h3>作品細節</h3>
+      <div class="card-content">
+        <p>這裡是簡短介紹...</p>
+        <div class="more-content">
+          <p>更多詳細資訊，初步文字展示，點擊展開收合。</p>
+        </div>
+        <button class="toggle-btn">展開 / 收合</button>
+      </div>
     </div>
 
-    <div class="bento-card cl2" onclick="window.location.href='#'">
-      <h3>作品 3</h3>
-      <p>可以放不同圖片或專案介紹。</p>
+    <!-- 專案連結 -->
+    <div class="bento-card cl2">
+      <h3>專案連結</h3>
+      <button onclick="window.open('https://github.com/你的專案', '_blank')">GitHub</button>
+      <button onclick="window.open('https://你的網站', '_blank')">網站</button>
     </div>
 
-    <div class="bento-card cl3" onclick="window.location.href='#'">
-      <h3>小貼士</h3>
-      <p>分享設計或程式的小技巧。</p>
+    <!-- 滑鼠追蹤光點 -->
+    <div class="bento-card tracking-card cl2">
+      <h3>滑鼠追蹤光點</h3>
+      <p>滑鼠移動時，光點會跟著動！✨</p>
+      <div class="light"></div>
     </div>
 
-    <div class="bento-card wide cl4" onclick="window.location.href='#'">
+    <!-- 近期活動 -->
+    <div class="bento-card cl4" onclick="window.location.href='#'">
       <h3>近期活動</h3>
       <p>參加比賽、工作坊或社群活動。</p>
     </div>
+
+    <!-- 卡片翻轉效果 -->
+    <div class="bento-card flip-card cl9">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>翻轉卡片</h3>
+          <p>滑鼠經過我看看！</p>
+        </div>
+        <div class="flip-card-back">
+          <h3>背面資訊</h3>
+          <p>更多內容顯示在這裡！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 滑動入場動畫卡片 -->
+    <div class="bento-card scroll-animate-card cl7">
+      <h3>滑動入場</h3>
+      <p>向下滾動時，卡片會旋轉淡入！</p>
+    </div>
+
+    <!-- 漸變光暈卡片 -->
+    <div class="bento-card glow-card cl8">
+      <h3>光暈動畫</h3>
+      <p>滑鼠經過會出現光暈～✨</p>
+    </div>
+
+    <!-- 滾動視差卡片 -->
+    <div class="bento-card parallax-card cl6">
+      <h3>視差效果</h3>
+      <p>背景會隨滑動慢慢移動。</p>
+    </div>
+
+<!-- 彩蛋卡片 -->
+<div class="bento-card cl1" id="easter-egg-card">
+  <h3>彩蛋卡片 🥚</h3>
+  <p>點我看看驚喜！</p>
+</div>
+
+<!-- 彩蛋彈窗 -->
+<div id="egg-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🎉 恭喜你找到彩蛋！ 🎉</h2>
+    <p>這裡可以放圖片、動畫或訊息～</p>
+  </div>
+</div>
+
+    <!-- 互動 Emoji / 表情動態 -->
+    <div class="bento-card cl2 emoji-card">
+      <h3>Emoji 動態 😎</h3>
+      <p>滑鼠滑過我看看！ <span class="emoji">✨</span> <span class="emoji">🔥</span></p>
+    </div>
+
+    <!-- 篩選或分類功能 -->
+     <div class="filter-buttons">
+      <button data-filter="all">全部</button>
+      <button data-filter="web">網頁專案</button>
+      <button data-filter="design">設計作品</button>
+    </div>
+    <main class="bento-grid">
+      <div class="bento-card cl1" data-category="web">作品 1 (網頁)</div>
+      <div class="bento-card cl2" data-category="design">作品 2 (設計)</div>
+      <div class="bento-card cl3" data-category="web">作品 3 (網頁)</div>
+      <div class="bento-card cl4" data-category="design">作品 4 (設計)</div>
+    </main>
+
+    <!-- 動態數字 / 統計圖表 -->
+    <div class="bento-card cl3 stats-card">
+      <h3>技能掌握度</h3>
+      <div class="skill" data-percent="80">
+        <p>HTML / CSS / JS</p>
+        <div class="bar"><div class="fill"></div></div>
+      </div>
+      <div class="skill" data-percent="70">
+         <p>React / Tailwind</p>
+         <div class="bar"><div class="fill"></div></div>
+      </div>
+      <div class="skill" data-percent="60">
+        <p>Figma / UI 設計</p>
+        <div class="bar"><div class="fill"></div></div>
+      </div>
+    </div>
+
+    <!-- 時間軸 -->
+     <div class="bento-card cl4 timeline-card">
+      <h3>歷程時間軸</h3>
+      <div class="timeline">
+        <div class="event">
+          <span class="date">2023/01</span>
+          <p>完成第一個網站專案</p>
+        </div>
+        <div class="event">
+          <span class="date">2023/06</span>
+          <p>參加設計比賽獲獎</p>
+        </div>
+        <div class="event">
+          <span class="date">2024/03</span>
+          <p>發表技術文章</p>
+        </div>
+      </div>
+    </div>
+
   </main>
 
+  <!-- 頁尾 -->
   <footer>
     <p>© 2025 我的 Bento 網頁</p>
   </footer>
 
+  <!-- 跑馬燈資訊區 -->
   <div class="marquee-wrapper">
     <div class="marquee">
       <span class="rainbow-text">d(・ω・d)微分！ ∂(・ω・∂)偏微分！</span>&nbsp; | &nbsp;
@@ -88,18 +217,167 @@
     </div>
   </div>
 
-  <script>
-    // 滾動動畫觸發
-    const cards = document.querySelectorAll('.bento-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
+  <!-- ===============================
+       JavaScript 功能區
+  =============================== -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ===============================
+  // 1. 滾動觸發動畫 (所有 bento-card)
+  // ===============================
+  const bentoCards = document.querySelectorAll('.bento-card');
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  bentoCards.forEach(card => cardObserver.observe(card));
+
+  // ===============================
+  // 2. 視差效果 (parallax-card)
+  // ===============================
+  const parallaxCard = document.querySelector('.parallax-card');
+  if (parallaxCard) {
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY;
+      parallaxCard.style.transform = `translateY(${offset * 0.2}px)`;
+    });
+  }
+
+  // ===============================
+  // 3. 可展開 / 收合卡片 (expandable-card)
+  // ===============================
+  document.querySelectorAll('.expandable-card .toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.expandable-card');
+      card.classList.toggle('active');
+    });
+  });
+
+  // ===============================
+  // 4. 聯絡表單提交
+  // ===============================
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('表單已送出！💌');
+    });
+  }
+
+  // ===============================
+  // 5. 滑鼠互動效果 (tracking-card & glow-card & flip-card)
+  // ===============================
+  document.querySelectorAll('.bento-card').forEach(card => {
+
+    // 光點追蹤 (tracking-card)
+    if (card.classList.contains('tracking-card')) {
+      const light = card.querySelector('.light');
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        light.style.left = `${x}px`;
+        light.style.top = `${y}px`;
+        light.style.opacity = 1;
+      });
+      card.addEventListener('mouseleave', () => light.style.opacity = 0);
+    }
+
+    // 光暈效果 (glow-card)
+    if (card.classList.contains('glow-card')) {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    }
+
+    // 翻轉卡片效果 (flip-card)
+    if (card.classList.contains('flip-card')) {
+      card.addEventListener('mouseenter', () => card.classList.add('flipped'));
+      card.addEventListener('mouseleave', () => card.classList.remove('flipped'));
+    }
+  });
+
+  // ===============================
+  // 6. 篩選或分類功能
+  // ===============================
+  const filterButtons = document.querySelectorAll('.filter-buttons button');
+  const filterCards = document.querySelectorAll('.bento-grid .bento-card');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filterCards.forEach(card => {
+        if(filter === 'all' || card.dataset.category === filter){
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
         }
       });
-    }, { threshold: 0.1 });
+    });
+  });
 
-    cards.forEach(card => observer.observe(card));
-  </script>
+  // ===============================
+  // 7. 動態數字 / 統計圖表
+  // ===============================
+  const skillCards = document.querySelectorAll('.stats-card');
+  skillCards.forEach(card => {
+    const skills = card.querySelectorAll('.skill');
+    skills.forEach(skill => {
+      const fill = skill.querySelector('.fill');
+      const percent = skill.dataset.percent;
+      fill.style.width = '0';
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            fill.style.width = percent + '%';
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(skill);
+    });
+  });
+
+  // ===============================
+  // 8. 彩蛋彈窗
+  // ===============================
+  const eggCard = document.getElementById('easter-egg-card');
+  const modal = document.getElementById('egg-modal');
+  const closeBtn = modal.querySelector('.close');
+
+  eggCard.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // ===============================
+  // 9. 主題切換（白天 / 夜晚模式）
+  // ===============================
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    });
+  }
+
+});
+</script>
+
 </body>
 </html>

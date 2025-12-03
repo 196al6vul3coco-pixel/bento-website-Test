@@ -1,85 +1,86 @@
-/* 基本樣式 */
+/* --- 基本樣式 --- */
 body {
-  background: #f5f5f7;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  margin: 0;
-  padding: 40px;
-  color: #333;
+  background: #000000; /* 全局背景顏色 */
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif; /* 系統字體 */
+  margin: 0; /* 清除默認邊距 */
+  padding: 40px; /* 頁面內邊距 */
+  color: #ffffff; /* 文字顏色 */
 }
 
 header {
-  text-align: center;
-  margin-bottom: 40px;
+  text-align: center; /* 標題置中 */
+  margin-bottom: 40px; /* 底部間距 */
 }
 
 header h1 {
-  margin: 0;
-  font-size: 36px;
+  margin: 0; /* 清除默認間距 */
+  font-size: 36px; /* 標題字體大小 */
 }
 
 header p {
-  color: #666;
+  color: #cdcdcd; /* 副標文字顏色 */
 }
 
 footer {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 14px;
-  color: #999;
+  text-align: center; /* 置中 */
+  margin-top: 60px; /* 上方間距 */
+  font-size: 14px; /* 字體大小 */
+  color: #cacaca; /* 字體顏色 */
 }
 
-/* Bento Grid */
+/* --- Bento Grid 容器 --- */
 .bento-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 180px;
-  gap: 20px;
+  display: grid; /* 使用 CSS Grid 排版 */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自動適應列數，每列最小 200px */
+  grid-auto-rows: 180px; /* 每行高度 180px */
+  gap: 20px; /* 行列間距 */
 }
 
+/* --- Bento 卡片樣式 --- */
 .bento-card {
-  border-radius: 25px;
-  padding: 20px;
+  border-radius: 25px; /* 圓角 */
+  padding: 20px; /* 內邊距 */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 垂直排列內部元素 */
   align-items: center;
   justify-content: center;
   text-align: center;
-  cursor: pointer;
+  cursor: pointer; /* 滑鼠手型 */
   color: white;
   font-weight: 500;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* 卡片陰影 */
   overflow: hidden;
 
-  /* 滑入動畫 */
+  /* --- 滑入動畫初始狀態 --- */
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
 }
 
 .bento-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* 顯示 */
+  transform: translateY(0); /* 回到原位 */
 }
 
-/* hover 動態 */
+/* --- hover 動態 --- */
 .bento-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(157, 255, 150, 0.12);
+  transform: translateY(-6px); /* 浮起效果 */
+  box-shadow: 0 12px 30px rgba(157, 255, 150, 0.12); /* 更亮陰影 */
 }
 
-/* 不同尺寸卡片 */
+/* --- 不同尺寸卡片 --- */
 .large {
-  grid-row: span 2;
-  grid-column: span 2;
+  grid-row: span 2; /* 高度跨兩行 */
+  grid-column: span 2; /* 寬度跨兩列 */
 }
 
 .wide {
-  grid-column: span 2;
+  grid-column: span 2; /* 寬度跨兩列 */
 }
 
-/* 圖片容器 */
+/* --- 圖片容器 --- */
 .image-wrapper {
-  width: 70%;
+  width: 70%; /* 圖片容器寬度 */
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
@@ -87,37 +88,40 @@ footer {
 }
 
 .card-img {
-  max-width: 70%;
+  max-width: 70%; /* 圖片最大寬度 */
   height: auto;
   border-radius: 15px;
   display: block;
   margin-top: 15px;
 }
 
-/* 不同卡片顏色 */
+/* --- 不同卡片顏色 --- */
 .cl1 { background: linear-gradient(135deg, #FF6B6B, #FFD93D); }
 .cl2 { background: linear-gradient(135deg, #6BCB77, #4D96FF); }
 .cl3 { background: linear-gradient(135deg, #FF8C42, #FF3CAC); }
 .cl4 { background: linear-gradient(135deg, #845EC2, #D65DB1); }
 .cl5 { background: linear-gradient(135deg, #00C9A7, #92FE9D); }
 .cl6 { background: linear-gradient(135deg, #F9F871, #FF6B6B); }
+.cl7 { background: linear-gradient(135deg, #00C9A7, #4d96ff); }
+.cl8 { background: linear-gradient(135deg, #d65db1, #f5f5f7); }
+.cl9 { background: linear-gradient(135deg, #ff6b6b, #00C9A7); }
 
-/* a 連結樣式 */
+/* --- a 連結樣式 --- */
 .bento-card a {
   color: white;
-  text-decoration: underline;
+  text-decoration: underline; /* 底線 */
 }
 
-/* 響應式 */
+/* --- 響應式 --- */
 @media (max-width: 768px) {
   .bento-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 縮小螢幕時列寬縮小 */
   }
   .large { grid-row: span 1; grid-column: span 1; }
   .wide { grid-column: span 1; }
 }
 
-/* 跑馬燈 */
+/* --- 跑馬燈 --- */
 .marquee-wrapper {
   position: fixed;
   bottom: 0;
@@ -134,30 +138,296 @@ footer {
 
 .marquee {
   display: inline-block;
-  white-space: nowrap;
+  white-space: nowrap; /* 文字不換行 */
   font-weight: bold;
-  animation: marquee 30s linear infinite;
+  animation: marquee 30s linear infinite; /* 滾動動畫 */
   cursor: default;
 }
 
 .rainbow-text {
   background: linear-gradient(90deg, #ff6b6b, #fddb3a, #6bcB77, #4d96ff, #d65db1);
-  background-clip: text;
+  background-clip: text; /* 漸層文字 */
   -webkit-background-clip: text;
   color: transparent;
   animation: rainbow 3s linear infinite;
 }
 
+/* --- 跑馬燈動畫 --- */
 @keyframes marquee {
   0% { transform: translateX(70%); }
   100% { transform: translateX(-100%); }
 }
 
+/* --- 彩虹文字動畫 --- */
 @keyframes rainbow {
   0% { background-position: 0%; }
   100% { background-position: 100%; }
 }
 
 .marquee-wrapper:hover .marquee {
-  animation-play-state: paused;
+  animation-play-state: paused; /* 滑鼠停留時暫停動畫 */
+}
+
+/* --- 翻轉卡片 --- */
+.flip-card {
+  perspective: 1000px; /* 3D 視角 */
+  position: relative; /* 讓內部絕對定位有效 */
+}
+
+.flip-card-inner {
+  position: absolute;   /* 絕對定位，不影響 Grid 行高 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* 3D 空間 */
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* 滑鼠 hover 時翻轉 */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 背面隱藏 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg); /* 背面翻轉 180 度 */
+  background: linear-gradient(135deg, #6BCB77, #4D96FF);
+}
+
+/* --- 光暈動畫 --- */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none; /* 不影響滑鼠事件 */
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+  100% { transform: scale(1.2) rotate(15deg); opacity: 0.3; }
+}
+
+.glow-card:hover {
+  transform: translateY(-6px) scale(1.02); /* 浮動 + 放大 */
+  box-shadow: 0 0 40px rgba(255,255,255,0.6), 0 0 80px rgba(255,255,255,0.3);
+}
+
+/* --- 滑動入場動畫（淡入 + 旋轉） --- */
+.scroll-animate-card {
+  opacity: 0;
+  transform: translateY(80px) rotate(-10deg) scale(0.9);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-animate-card.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+
+/* --- 滾動視差效果 --- */
+.parallax-card {
+  background-attachment: fixed;
+}
+
+/* 彩蛋 modal 基本樣式 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 80%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* --- 卡片內部展開/收合 --- */
+.expandable-card .more-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.expandable-card.active .more-content {
+  max-height: 200px; /* 依內容調整 */
+}
+
+/* --- 表單互動 --- */
+#contact-form input, #contact-form textarea {
+  width: 90%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 10px;
+  border: none;
+}
+
+#contact-form button {
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: #4D96FF;
+  color: white;
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  background-color: #6BCB77; /* hover 顏色變化 */
+}
+
+/* --- 滑鼠追蹤光點 --- */
+.tracking-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tracking-card .light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  border-radius: 50%;
+  pointer-events: none; /* 不阻礙滑鼠事件 */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* --- 動態數字 / 統計圖表 --- */
+.stats-card .bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  margin: 6px 0;
+  overflow: hidden;
+}
+.stats-card .fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #6BCB77, #4D96FF);
+  border-radius: 10px;
+  transition: width 2s ease;
+}
+
+/* --- 時間軸 --- */
+.timeline {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: white;
+  opacity: 0.3;
+}
+
+.event {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.event::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: #4D96FF;
+  border-radius: 50%;
+}
+
+.event .date {
+  font-size: 12px;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* --- 互動 Emoji / 表情動態 --- */
+.emoji-card .emoji {
+  display: inline-block;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.emoji-card .emoji:hover {
+  transform: translateY(-10px) scale(1.3);
+  color: #FFD93D;
+}
+
+/* --- 主題切換（白天 / 夜晚模式） --- */
+body.light {
+  background: #f5f5f7;
+  color: #333;
+}
+
+body.dark {
+  background: #1c1c1c;
+  color: #eee;
+}
+
+.bento-card.dark {
+  box-shadow: 0 6px 20px rgba(255,255,255,0.08);
 }
