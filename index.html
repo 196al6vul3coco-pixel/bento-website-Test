@@ -21,7 +21,7 @@
   <nav class="filter-buttons" aria-label="篩選作品類別">
     <button data-filter="all">全部</button>
     <button data-filter="web">網頁專案</button>
-    <button data-filter="design">設計作品</button>
+    <button data-filter="design">有趣功能</button>
   </nav>
 
   <!-- Bento 卡片網格 -->
@@ -36,26 +36,27 @@
       <p>這是我最引以為傲的作品，點擊可查看更多。</p>
     </article>
 
-    <!-- 關於我 -->
-    <article class="bento-card wide cl2" data-category="design" data-href="#">
-      <h3>關於我</h3>
-      <p>熱愛設計與程式，喜歡簡潔、整齊的 UI 排版。</p>
+    <!-- 看影片 -->
+    <article class="bento-card wide cl2" data-category="design" data-youtube="c6rP-YP4c5I">
+      <h3>看影片</h3>
+      <p>熱愛設計與程式，喜歡簡潔、整齊的 UI 排版。點擊我看看影片！</p>
     </article>
 
     <!-- 技能 -->
-    <article class="bento-card cl3 scrollable" data-href="#">
+    <article class="bento-card cl3 scrollable" data-category="web" data-href="#">
       <h3>技能</h3>
         <div class="scroll-content">
-          <a>HTML / CSS / JS</a>
-          <a>React / Tailwind</a>
-          <a>Figma / UI 設計</a>
-          <a>Swift / SwiftUI</a>
-          <a>更多技能...</a>
+          <a>HTML/CSS/JS</a>
+          <a>React/Tailwind</a>
+          <a>Figma/UI 設計</a>
+          <a>Swift/SwiftUI</a>
+          <a>C/C++/C#</a>
+          <a>Java/Python</a>
         </div>
     </article>
 
     <!-- 聯絡表單 -->
-    <article class="bento-card cl5">
+    <article class="bento-card cl5" data-category="web">
       <h3>聯絡我</h3>
       <form id="contact-form">
         <input type="text" placeholder="姓名" required>
@@ -66,14 +67,14 @@
     </article>
 
     <!-- 社群連結 -->
-    <article class="bento-card cl6">
+    <article class="bento-card cl6" data-category="web">
       <h3>社群連結</h3>
         <a href="https://github.com/196al6vul3coco-pixel" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/你的帳號" target="_blank">LinkedIn</a>
     </article>
 
     <!-- 可展開卡片 -->
-    <article class="bento-card cl7 expandable-card">
+    <article class="bento-card cl7 expandable-card" data-category="web">
       <h3>作品細節</h3>
       <div class="card-content">
         <p>這裡是簡短介紹...</p>
@@ -85,7 +86,7 @@
     </article>
 
     <!-- 專案連結 -->
-    <article class="bento-card cl8">
+    <article class="bento-card cl8" data-category="web">
       <h3>專案連結</h3>
       <div class="btn-group">
         <button data-href="https://github.com/196al6vul3coco-pixel/bento-website-Test">GitHub</button>
@@ -94,14 +95,14 @@
     </article>
 
     <!-- 滑鼠追蹤光點 -->
-    <article class="bento-card tracking-card cl9">
+    <article class="bento-card tracking-card cl9" data-category="design">
       <h3>滑鼠追蹤光點</h3>
       <p>滑鼠移動時，光點會跟著動！✨</p>
       <div class="light"></div>
     </article>
 
     <!-- 翻轉卡片 -->
-    <article class="bento-card flip-card cl11">
+    <article class="bento-card flip-card cl11" data-category="design">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <h3>翻轉卡片</h3>
@@ -115,25 +116,25 @@
     </article>
 
     <!-- 滑動入場動畫 -->
-    <article class="bento-card scroll-animate-card cl12">
+    <article class="bento-card scroll-animate-card cl12" data-category="design">
       <h3>滑動入場</h3>
       <p>向下滾動時，卡片會旋轉淡入！</p>
     </article>
 
     <!-- 漸變光暈卡片 -->
-    <article class="bento-card glow-card cl13">
+    <article class="bento-card glow-card cl13" data-category="design">
       <h3>光暈動畫</h3>
       <p>滑鼠經過會出現光暈～✨</p>
     </article>
 
     <!-- 滾動視差卡片 -->
-    <article class="bento-card parallax-card cl14">
+    <article class="bento-card parallax-card cl14" data-category="design">
       <h3>視差效果</h3>
       <p>背景會隨滑動慢慢移動。</p>
     </article>
 
     <!-- 彩蛋卡片 -->
-    <article class="bento-card cl15" id="easter-egg-card">
+    <article class="bento-card cl15" id="easter-egg-card" data-category="design">
       <h3>彩蛋卡片 🥚</h3>
       <p>點我看看驚喜！</p>
     </article>
@@ -148,13 +149,13 @@
     </div>
 
     <!-- Emoji 動態 -->
-    <article class="bento-card cl16 emoji-card">
+    <article class="bento-card cl16 emoji-card" data-category="design">
       <h3>Emoji 動態 😎</h3>
       <p>滑鼠滑過我看看！ <span class="emoji">✨</span> <span class="emoji">🔥</span></p>
     </article>
 
     <!-- 技能統計圖表 -->
-    <article class="bento-card cl17 stats-card">
+    <article class="bento-card cl17 stats-card" data-category="web">
       <h3>技能掌握度</h3>
       <div class="skill" data-percent="80">
         <p>HTML / CSS / JS</p>
@@ -171,7 +172,7 @@
     </article>
 
     <!-- 時間軸 -->
-    <article class="bento-card cl18 timeline-card">
+    <article class="bento-card cl18 timeline-card" data-category="web">
       <h3>歷程時間軸</h3>
       <div class="timeline">
         <div class="event">
@@ -205,6 +206,12 @@
       <span class="rainbow-text">∇²(・ω・∇²)拉普拉斯！ ∇・∇(・ω・∇・∇)拉普拉斯！ Δ(・ω・Δ)拉普拉斯三連擊！</span>&nbsp;  &nbsp;
       <span class="rainbow-text">( *・ω・)✄嘎掉！ “(∮ - ω -)∮”開心！ ($・ω・)$斗內！</span>
     </div>
+  </div>
+
+  <!-- YouTube 影片彈窗 -->
+  <div id="video-container" class="video-modal">
+    <span id="close-video" class="close">&times;</span>
+    <div id="video-wrapper"></div>
   </div>
 
   <script src="main.js"></script>

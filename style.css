@@ -257,3 +257,39 @@ footer { margin-top:60px; font-size:14px; color:#cacaca; }
   .large { grid-row: span 1; grid-column: span 1; }
   .wide { grid-column: span 1; }
 }
+
+/* ===============================
+   單個youtube影片彈跳
+=============================== */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.video-modal.active {
+  display: flex;
+}
+
+#video-wrapper {
+  width: 80%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+}
+
+.close {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===============================
+   youtube影片彈跳-排成一排
+=============================== */

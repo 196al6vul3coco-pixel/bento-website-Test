@@ -192,4 +192,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+    /* -----------------------------
+     12. youtube影片彈跳
+  ------------------------------ */
+  // 選取所有有 data-youtube 的卡片
+  const cards = document.querySelectorAll('.bento-card[data-youtube]');
+  const videoModal = document.getElementById('video-container');
+  const videoWrapper = document.getElementById('video-wrapper');
+  const closeBtn = document.getElementById('close-video');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.getAttribute('data-youtube');
+      videoWrapper.innerHTML = `<iframe width="100%" height="100%" 
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>`;
+      videoModal.classList.add('active');
+    });
+  });
+
+  // 關閉影片
+  closeBtn.addEventListener('click', () => {
+    videoWrapper.innerHTML = '';
+    videoModal.classList.remove('active');
+  });
+
+  // 點空白處也可以關閉
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+      videoWrapper.innerHTML = '';
+      videoModal.classList.remove('active');
+    }
+  });
+
+      /* -----------------------------
+     13. youtube影片彈跳-共用彈窗播放
+  ------------------------------ */
+
+
+
 });
+
