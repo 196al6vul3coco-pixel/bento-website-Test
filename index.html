@@ -1,219 +1,221 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的進階 Bento 網頁</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VTuber Ultimate Fanpage</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-  <!-- 主題切換按鈕 -->
-  <button id="theme-toggle" aria-label="切換主題">切換主題 🌙</button>
+<canvas id="stars"></canvas>
+<canvas id="sakura"></canvas>
 
-  <!-- 頁首 -->
-  <header>
-    <h1>我的 Bento 網頁</h1>
-    <p>展示作品與資訊的簡潔 Bento 風格</p>
-  </header>
+<section class="hero">
 
-  <!-- 篩選按鈕 -->
-  <nav class="filter-buttons" aria-label="篩選作品類別">
-    <button data-filter="all">全部</button>
-    <button data-filter="web">網頁專案</button>
-    <button data-filter="design">有趣功能</button>
-  </nav>
+<img src="teeth/teeth.jpeg" class="avatar" id="vtuber-avatar" alt="avatar">
 
-  <!-- Bento 卡片網格 -->
-  <main class="bento-grid">
+<h1 class="animated">Happy 4th Anniversary</h1>
 
-    <!-- 主要作品 -->
-    <article class="bento-card large cl1" data-category="web" data-href="#">
-      <div class="image-wrapper">
-        <img src="images/fatdog.png" alt="作品展示" class="card-img">
-      </div>
-      <h2>主要作品</h2>
-      <p>這是我最引以為傲的作品，點擊可查看更多。</p>
-    </article>
+<div class="name animated">
+TCCCCCCCCC
+</div>
 
-    <!-- 看影片 -->
-    <article class="bento-card wide cl2" data-category="design" data-youtube="c6rP-YP4c5I">
-      <h3>看影片</h3>
-      <p>熱愛設計與程式，喜歡簡潔、整齊的 UI 排版。點擊我看看影片！</p>
-    </article>
+<div class="counter animated">
+Together for <span id="days">0</span> days
+</div>
 
-    <!-- 技能 -->
-    <article class="bento-card cl3 scrollable" data-category="web" data-href="#">
-      <h3>技能</h3>
-        <div class="scroll-content">
-          <a>HTML/CSS/JS</a>
-          <a>React/Tailwind</a>
-          <a>Figma/UI 設計</a>
-          <a>Swift/SwiftUI</a>
-          <a>C/C++/C#</a>
-          <a>Java/Python</a>
-        </div>
-    </article>
+<div class="subscriber-counter animated">
 
-    <!-- 聯絡表單 -->
-    <article class="bento-card cl5" data-category="web">
-      <h3>聯絡我</h3>
-      <form id="contact-form">
-        <input type="text" placeholder="姓名" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="訊息" required></textarea>
-        <button type="submit">送出</button>
-      </form>
-    </article>
+Subscribers:
+<span id="subs">10000</span>
 
-    <!-- 社群連結 -->
-    <article class="bento-card cl6" data-category="web">
-      <h3>社群連結</h3>
-        <a href="https://github.com/196al6vul3coco-pixel" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/你的帳號" target="_blank">LinkedIn</a>
-    </article>
+</div>
 
-    <!-- 可展開卡片 -->
-    <article class="bento-card cl7 expandable-card" data-category="web">
-      <h3>作品細節</h3>
-      <div class="card-content">
-        <p>這裡是簡短介紹...</p>
-        <div class="more-content">
-          <p>更多詳細資訊，初步文字展示，點擊展開收合。</p>
-        </div>
-        <button class="toggle-btn">展開 / 收合</button>
-      </div>
-    </article>
+<div class="countdown animated">
 
-    <!-- 專案連結 -->
-    <article class="bento-card cl8" data-category="web">
-      <h3>專案連結</h3>
-      <div class="btn-group">
-        <button data-href="https://github.com/196al6vul3coco-pixel/bento-website-Test">GitHub</button>
-        <button data-href="https://196al6vul3coco-pixel.github.io/bento-website-Test/">網站</button>
-      </div>
-    </article>
+Next Anniversary Countdown:
 
-    <!-- 滑鼠追蹤光點 -->
-    <article class="bento-card tracking-card cl9" data-category="design">
-      <h3>滑鼠追蹤光點</h3>
-      <p>滑鼠移動時，光點會跟著動！✨</p>
-      <div class="light"></div>
-    </article>
+<div id="timer">
+<span id="d">0</span>d 
+<span id="h">0</span>h 
+<span id="m">0</span>m 
+<span id="s">0</span>s
+</div>
 
-    <!-- 翻轉卡片 -->
-    <article class="bento-card flip-card cl11" data-category="design">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <h3>翻轉卡片</h3>
-          <p>滑鼠經過我看看！</p>
-        </div>
-        <div class="flip-card-back">
-          <h3>背面資訊</h3>
-          <p>更多內容顯示在這裡！</p>
-        </div>
-      </div>
-    </article>
+</div>
 
-    <!-- 滑動入場動畫 -->
-    <article class="bento-card scroll-animate-card cl12" data-category="design">
-      <h3>滑動入場</h3>
-      <p>向下滾動時，卡片會旋轉淡入！</p>
-    </article>
+</section>
 
-    <!-- 漸變光暈卡片 -->
-    <article class="bento-card glow-card cl13" data-category="design">
-      <h3>光暈動畫</h3>
-      <p>滑鼠經過會出現光暈～✨</p>
-    </article>
+<section class="timeline">
 
-    <!-- 滾動視差卡片 -->
-    <article class="bento-card parallax-card cl14" data-category="design">
-      <h3>視差效果</h3>
-      <p>背景會隨滑動慢慢移動。</p>
-    </article>
+<h2 class="animated">Milestones</h2>
 
-    <!-- 彩蛋卡片 -->
-    <article class="bento-card cl15" id="easter-egg-card" data-category="design">
-      <h3>彩蛋卡片 🥚</h3>
-      <p>點我看看驚喜！</p>
-    </article>
+<ul>
+<li class="timeline-item">2026-06-01: 出道日</li>
+<li class="timeline-item">2026-07-15: 第一場直播</li>
+<li class="timeline-item">2026-10-01: 粉絲數達10000</li>
+</ul>
 
-    <!-- 彩蛋彈窗 -->
-    <div id="egg-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>🎉 恭喜你找到彩蛋！ 🎉</h2>
-        <p>這裡可以放圖片、動畫或訊息～</p>
-      </div>
+</section>
+
+<h2 class="animated">Fanart Gallery</h2>
+
+<div class="fanart-slider">
+
+<img id="slider-img" src="teeth/teeth-1.jpeg">
+
+</div>
+
+<section class="gallery">
+<div class="fanart-grid">
+<div class="gallery-wrapper">
+<button class="gallery-arrow" id="gallery-left">&#10094;</button>
+<div class="gallery-scroll" id="gallery-scroll">
+<img src="teeth/teeth-1.jpeg">
+<img src="teeth/teeth-2.jpeg">
+<img src="teeth/teeth-3.jpeg">
+<img src="teeth/teeth-4.jpeg">
+<img src="teeth/teeth-5.jpeg">
+<img src="teeth/teeth-6.jpeg">
+<img src="teeth/teeth-7.jpeg">
+<img src="teeth/teeth-8.jpeg">
+<img src="teeth/teeth-9.jpeg">
+</div>
+<button class="gallery-arrow" id="gallery-right">&#10095;</button>
+</div>
+</div>
+</section>
+
+<section class="live">
+
+<h2 class="animated">Latest Live</h2>
+
+<div class="live-container">
+
+<iframe
+width="800"
+height="450"
+src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</section>
+
+<section class="interaction">
+
+<h2 class="animated">Fan Interaction</h2>
+
+<div class="vote">
+
+<p>Vote for next live content:</p>
+
+<button class="vote-btn" data-option="Game Stream">Game Stream</button>
+<button class="vote-btn" data-option="Chat Stream">Chat Stream</button>
+<button class="vote-btn" data-option="Special Event">Special Event</button>
+
+<p>Current Votes:</p>
+
+<div id="vote-results"></div>
+
+</div>
+
+</section>
+
+<section class="message-wall">
+
+  <h2>粉絲留言牆</h2>
+
+  <!-- 卡片滑動區 -->
+  <div class="msg-wall-wrapper">
+
+    <!-- 左箭頭 -->
+    <button class="arrow-btn" id="left-arrow">&#10094;</button>
+
+    <!-- 留言卡片容器 -->
+    <div id="messages">
+      <!-- JS 會生成留言卡片 -->
     </div>
 
-    <!-- Emoji 動態 -->
-    <article class="bento-card cl16 emoji-card" data-category="design">
-      <h3>Emoji 動態 😎</h3>
-      <p>滑鼠滑過我看看！ <span class="emoji">✨</span> <span class="emoji">🔥</span></p>
-    </article>
+    <!-- 右箭頭 -->
+    <button class="arrow-btn" id="right-arrow">&#10095;</button>
 
-    <!-- 技能統計圖表 -->
-    <article class="bento-card cl17 stats-card" data-category="web">
-      <h3>技能掌握度</h3>
-      <div class="skill" data-percent="80">
-        <p>HTML / CSS / JS</p>
-        <div class="bar"><div class="fill"></div></div>
-      </div>
-      <div class="skill" data-percent="70">
-        <p>React / Tailwind</p>
-        <div class="bar"><div class="fill"></div></div>
-      </div>
-      <div class="skill" data-percent="60">
-        <p>Figma / UI 設計</p>
-        <div class="bar"><div class="fill"></div></div>
-      </div>
-    </article>
-
-    <!-- 時間軸 -->
-    <article class="bento-card cl18 timeline-card" data-category="web">
-      <h3>歷程時間軸</h3>
-      <div class="timeline">
-        <div class="event">
-          <span class="date">2023/01</span>
-          <p>完成第一個網站專案</p>
-        </div>
-        <div class="event">
-          <span class="date">2023/06</span>
-          <p>參加設計比賽獲獎</p>
-        </div>
-        <div class="event">
-          <span class="date">2024/03</span>
-          <p>發表技術文章</p>
-        </div>
-      </div>
-    </article>
-
-  </main>
-
-  <!-- 頁尾 -->
-  <footer>
-    © 2025 我的 Bento 網頁
-  </footer>
-
-  <!-- 跑馬燈資訊區 -->
-  <div class="marquee-wrapper">
-    <div class="marquee">
-      <span class="rainbow-text">d(・ω・d)微分！ ∂(・ω・∂)偏微分！</span>&nbsp;  &nbsp;
-      <span class="rainbow-text">(∫・ω・)∫積分！ (∮・ω・)∮沿閉曲線的積分！ (∬・ω・)∬重積分！</span> &nbsp;  &nbsp;
-      <span class="rainbow-text">∇(・ω・∇)梯度！ ∇・(・ω・∇・)散度！ ∇×(・ω・∇×)旋度！</span> &nbsp;  &nbsp;
-      <span class="rainbow-text">∇²(・ω・∇²)拉普拉斯！ ∇・∇(・ω・∇・∇)拉普拉斯！ Δ(・ω・Δ)拉普拉斯三連擊！</span>&nbsp;  &nbsp;
-      <span class="rainbow-text">( *・ω・)✄嘎掉！ “(∮ - ω -)∮”開心！ ($・ω・)$斗內！</span>
-    </div>
   </div>
 
-  <!-- YouTube 影片彈窗 -->
-  <div id="video-container" class="video-modal">
-    <span id="close-video" class="close">&times;</span>
-    <div id="video-wrapper"></div>
+  <!-- 留言輸入區 -->
+  <div class="msg-input">
+    <input type="text" id="fan-name" placeholder="你的暱稱 (最多20字)">
+    <input type="text" id="fan-msg" placeholder="留言內容 (最多100字)">
+    <button id="send-msg">送出留言</button>
   </div>
 
-  <script src="main.js"></script>
+  <!-- 總留言數 -->
+  <div class="msg-stats">
+    總留言數: <span id="total-msg">0</span>
+  </div>
+
+</section>
+
+<div id="lightbox">
+
+<button id="prev">&#10094;</button>
+<img id="lightbox-img">
+<button id="next">&#10095;</button>
+
+</div>
+
+<footer>
+
+<div class="share">
+
+Share:
+
+<button onclick="share('twitter')">Twitter</button>
+<button onclick="share('facebook')">Facebook</button>
+<button onclick="share('line')">Line</button>
+
+</div>
+
+Made with ❤️ by fans
+
+</footer>
+
+<audio id="bgm" src="audio/bgm.mp3" loop></audio>
+<audio id="sakuraAudio" src="audio/sakura.mp3" loop></audio>
+<audio id="clickAudio" src="audio/click.mp3"></audio>
+
+<script src="js/audio.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/background.js"></script>
+<script src="js/message.js"></script>
+<script src="js/vote.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/subscriber.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/gallery-slider.js"></script>
+<script src="js/slider.js"></script>
+
+<!-- 跑馬燈資訊區 -->
+<div class="marquee-wrapper">
+  <div class="marquee">
+    <span class="rainbow-text">d(・ω・d)微分！ ∂(・ω・∂)偏微分！</span>&nbsp;&nbsp;
+    <span class="rainbow-text">(∫・ω・)∫積分！ (∮・ω・)∮沿閉曲線的積分！ (∬・ω・)∬重積分！</span>&nbsp;&nbsp;
+    <span class="rainbow-text">∇(・ω・∇)梯度！ ∇・(・ω・∇・)散度！ ∇×(・ω・∇×)旋度！</span>&nbsp;&nbsp;
+    <span class="rainbow-text">∇²(・ω・∇²)拉普拉斯！ ∇・∇(・ω・∇・∇)拉普拉斯！ Δ(・ω・Δ)拉普拉斯三連擊！</span>&nbsp;&nbsp;
+    <span class="rainbow-text">( *・ω・)✄嘎掉！ “(∮ - ω -)∮”開心！ ($・ω・)$斗內！</span>
+  </div>
+</div>
+
 </body>
 </html>
